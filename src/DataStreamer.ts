@@ -3,6 +3,8 @@ export interface Order {
   size: number,
 }
 export interface ServerRespond {
+  top_bid_price: any;
+  top_ask_price: any;
   stock: string,
   top_bid: Order,
   top_ask: Order,
@@ -10,7 +12,7 @@ export interface ServerRespond {
 }
 
 class DataStreamer {
-  static API_URL: string = 'http://localhost:8080/query?id=1';
+  static API_URL: string = 'http://localhost:8085/query?id=1';
 
   static getData(callback: (data: ServerRespond[]) => void): void {
     const request = new XMLHttpRequest();
